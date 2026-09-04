@@ -1,10 +1,13 @@
+ChatGPT의 말:
+물론입니다. 기존 기능은 그대로 유지하면서 **제목과 상단 브랜드명을 “다케어 세탁클린 AI”**로 바꾼 전체 코드입니다.
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>세탁클린 AI</title>
+
+<title>다케어 세탁클린</title>
 
 <style>
 * {
@@ -323,6 +326,7 @@ main {
 }
 
 /* 청소방법 */
+
 .info-card {
   background: #f7f9fc;
   border-radius: 17px;
@@ -346,6 +350,7 @@ main {
 }
 
 /* 예약 */
+
 .booking-card {
   margin-top: 15px;
   background: linear-gradient(135deg,#edf7ff,#f8fbff);
@@ -375,6 +380,7 @@ main {
 }
 
 /* 마이 */
+
 .profile-card {
   background: #f7f9fc;
   border-radius: 18px;
@@ -393,6 +399,7 @@ main {
 }
 
 /* 하단 메뉴 */
+
 footer {
   position: fixed;
   bottom: 0;
@@ -437,19 +444,24 @@ footer b {
 <div class="app">
 
 <header>
-  <div>🧼 <span>세탁클린</span>&nbsp;AI</div>
+  <div>🧼 <span>다케어 세탁클린</span>&nbsp;AI</div>
   <div class="contact">유동욱 / 010-9013-9047</div>
 </header>
 
 <main>
 
 <!-- ================= 홈 ================= -->
+
 <section id="homePage" class="page active">
 
 <section class="hero">
+
   <div class="robot">🤖</div>
 
-  <h1>세탁기 상태를<br>AI로 진단해보세요</h1>
+  <h1>
+    세탁기 상태를<br>
+    AI로 진단해보세요
+  </h1>
 
   <p>
     냄새·곰팡이·찌꺼기 등<br>
@@ -457,7 +469,9 @@ footer b {
   </p>
 
   <label class="upload">
+
     <strong>📷 세탁기 사진 올리기</strong>
+
     사진을 올리면 진단에 참고합니다.
 
     <input
@@ -469,8 +483,11 @@ footer b {
     >
 
     <img id="preview">
+
   </label>
+
 </section>
+
 
 <section class="section">
 
@@ -478,17 +495,26 @@ footer b {
 
 <div class="grid">
 
-  <div class="option washer active" data-value="통돌이">
-    🧺<br>통돌이
+  <div
+    class="option washer active"
+    data-value="통돌이"
+  >
+    🧺<br>
+    통돌이
   </div>
 
-  <div class="option washer" data-value="드럼">
-    🔵<br>드럼
+  <div
+    class="option washer"
+    data-value="드럼"
+  >
+    🔵<br>
+    드럼
   </div>
 
 </div>
 
 </section>
+
 
 <section class="section">
 
@@ -496,19 +522,31 @@ footer b {
 
 <div class="grid">
 
-  <div class="option age" data-value="1년 미만">
+  <div
+    class="option age"
+    data-value="1년 미만"
+  >
     1년 미만
   </div>
 
-  <div class="option age" data-value="1~3년">
+  <div
+    class="option age"
+    data-value="1~3년"
+  >
     1~3년
   </div>
 
-  <div class="option age" data-value="3~5년">
+  <div
+    class="option age"
+    data-value="3~5년"
+  >
     3~5년
   </div>
 
-  <div class="option age" data-value="5년 이상">
+  <div
+    class="option age"
+    data-value="5년 이상"
+  >
     5년 이상
   </div>
 
@@ -516,29 +554,45 @@ footer b {
 
 </section>
 
+
 <section class="section">
 
 <h2>3. 현재 어떤 문제가 있나요?</h2>
 
 <div class="symptoms">
 
-  <div class="symptom" data-score="25">
+  <div
+    class="symptom"
+    data-score="25"
+  >
     👃 냄새가 나요
   </div>
 
-  <div class="symptom" data-score="30">
+  <div
+    class="symptom"
+    data-score="30"
+  >
     🦠 곰팡이가 보여요
   </div>
 
-  <div class="symptom" data-score="25">
+  <div
+    class="symptom"
+    data-score="25"
+  >
     🖤 검은 찌꺼기가 나와요
   </div>
 
-  <div class="symptom" data-score="15">
+  <div
+    class="symptom"
+    data-score="15"
+  >
     💧 물때가 있어요
   </div>
 
-  <div class="symptom" data-score="10">
+  <div
+    class="symptom"
+    data-score="10"
+  >
     ✨ 특별한 문제는 없어요
   </div>
 
@@ -546,17 +600,28 @@ footer b {
 
 </section>
 
-<button class="primary" onclick="diagnose()">
+
+<button
+  class="primary"
+  onclick="diagnose()"
+>
   🔍 AI 세탁기 진단하기
 </button>
 
-<section id="result" class="result">
+
+<section
+  id="result"
+  class="result"
+>
 
   <div class="score">
 
     <small>AI 청소 필요도</small>
 
-    <div class="score-number" id="score">
+    <div
+      class="score-number"
+      id="score"
+    >
       0
     </div>
 
@@ -566,31 +631,53 @@ footer b {
 
   </div>
 
+
   <div class="analysis">
 
     <h3>🔎 AI 분석 결과</h3>
 
     <div class="analysis-row">
       <span>곰팡이 / 오염</span>
-      <span id="mold" class="bad">-</span>
+      <span
+        id="mold"
+        class="bad"
+      >
+        -
+      </span>
     </div>
 
     <div class="analysis-row">
       <span>세제 찌꺼기</span>
-      <span id="detergent" class="mid">-</span>
+      <span
+        id="detergent"
+        class="mid"
+      >
+        -
+      </span>
     </div>
 
     <div class="analysis-row">
       <span>물때 / 석회</span>
-      <span id="scale" class="mid">-</span>
+      <span
+        id="scale"
+        class="mid"
+      >
+        -
+      </span>
     </div>
 
     <div class="analysis-row">
       <span>종합 상태</span>
-      <span id="total" class="bad">-</span>
+      <span
+        id="total"
+        class="bad"
+      >
+        -
+      </span>
     </div>
 
   </div>
+
 
   <div class="recommend">
 
@@ -598,7 +685,10 @@ footer b {
 
     <p id="recommendation"></p>
 
-    <button class="primary" onclick="showPage('bookingPage')">
+    <button
+      class="primary"
+      onclick="showPage('bookingPage')"
+    >
       📅 전문 청소 예약 문의
     </button>
 
@@ -606,11 +696,15 @@ footer b {
 
 </section>
 
+
 <section class="chat">
 
-<h2>🤖 세탁클린 AI에게 물어보세요</h2>
+<h2>🤖 다케어 세탁클린 AI에게 물어보세요</h2>
 
-<div class="messages" id="messages">
+<div
+  class="messages"
+  id="messages"
+>
 
   <div class="bot">
     안녕하세요! 👋<br>
@@ -618,6 +712,7 @@ footer b {
   </div>
 
 </div>
+
 
 <div class="chat-input">
 
@@ -634,6 +729,7 @@ footer b {
 
 </section>
 
+
 <section class="history">
 
 <h2>📋 최근 진단</h2>
@@ -648,30 +744,48 @@ footer b {
 
 
 <!-- ================= 진단 ================= -->
-<section id="diagnosisPage" class="page">
+
+<section
+  id="diagnosisPage"
+  class="page"
+>
 
   <div class="hero">
+
     <div class="robot">🔍</div>
+
     <h1>세탁기 진단</h1>
+
     <p>
       아래에서 세탁기 상태를 선택하면<br>
       청소 필요도를 확인할 수 있습니다.
     </p>
+
   </div>
 
   <div class="section">
-    <button class="primary" onclick="showPage('homePage')">
+
+    <button
+      class="primary"
+      onclick="showPage('homePage')"
+    >
       🧺 진단 시작하기
     </button>
+
   </div>
 
 </section>
 
 
 <!-- ================= 청소방법 ================= -->
-<section id="cleanPage" class="page">
+
+<section
+  id="cleanPage"
+  class="page"
+>
 
   <div class="hero">
+
     <div class="robot">🧼</div>
 
     <h1>세탁기 청소방법</h1>
@@ -680,7 +794,9 @@ footer b {
       세탁기를 깨끗하게 관리하는<br>
       기본적인 방법을 알려드릴게요.
     </p>
+
   </div>
+
 
   <div class="info-card">
 
@@ -698,6 +814,7 @@ footer b {
 
   </div>
 
+
   <div class="info-card">
 
     <h3>② 세탁 후 건조</h3>
@@ -714,6 +831,7 @@ footer b {
 
   </div>
 
+
   <div class="info-card">
 
     <h3>③ 세제통 관리</h3>
@@ -724,6 +842,7 @@ footer b {
     </div>
 
   </div>
+
 
   <div class="info-card">
 
@@ -740,7 +859,11 @@ footer b {
 
 
 <!-- ================= 예약 ================= -->
-<section id="bookingPage" class="page">
+
+<section
+  id="bookingPage"
+  class="page"
+>
 
   <div class="hero">
 
@@ -754,6 +877,7 @@ footer b {
     </p>
 
   </div>
+
 
   <div class="booking-card">
 
@@ -770,7 +894,13 @@ footer b {
       📞 전화 걸기
     </a>
 
-    <p style="color:#64748b;font-size:13px;margin-top:15px;">
+    <p
+      style="
+        color:#64748b;
+        font-size:13px;
+        margin-top:15px;
+      "
+    >
       휴대폰에서는 버튼을 누르면<br>
       바로 전화 연결 화면으로 이동합니다.
     </p>
@@ -781,7 +911,11 @@ footer b {
 
 
 <!-- ================= 마이 ================= -->
-<section id="myPage" class="page">
+
+<section
+  id="myPage"
+  class="page"
+>
 
   <div class="hero">
 
@@ -796,7 +930,11 @@ footer b {
 
   </div>
 
-  <div class="profile-card" style="margin-top:15px;">
+
+  <div
+    class="profile-card"
+    style="margin-top:15px;"
+  >
 
     <div class="profile-name">
       유동욱
@@ -807,6 +945,7 @@ footer b {
     </div>
 
   </div>
+
 
   <div class="history">
 
@@ -827,27 +966,42 @@ footer b {
 
 <footer>
 
-<div class="nav-item active" data-page="homePage">
+<div
+  class="nav-item active"
+  data-page="homePage"
+>
   <b>🏠</b>
   홈
 </div>
 
-<div class="nav-item" data-page="diagnosisPage">
+<div
+  class="nav-item"
+  data-page="diagnosisPage"
+>
   <b>🔍</b>
   진단
 </div>
 
-<div class="nav-item" data-page="cleanPage">
+<div
+  class="nav-item"
+  data-page="cleanPage"
+>
   <b>🧼</b>
   청소방법
 </div>
 
-<div class="nav-item" data-page="bookingPage">
+<div
+  class="nav-item"
+  data-page="bookingPage"
+>
   <b>📅</b>
   예약
 </div>
 
-<div class="nav-item" data-page="myPage">
+<div
+  class="nav-item"
+  data-page="myPage"
+>
   <b>👤</b>
   마이
 </div>
@@ -869,33 +1023,51 @@ let selectedSymptoms = [];
 function showPage(pageId) {
 
   document.querySelectorAll(".page").forEach(page => {
+
     page.classList.remove("active");
+
   });
 
-  const target = document.getElementById(pageId);
+
+  const target =
+    document.getElementById(pageId);
+
 
   if (target) {
+
     target.classList.add("active");
+
   }
+
 
   document.querySelectorAll(".nav-item").forEach(item => {
 
     item.classList.remove("active");
 
+
     if (item.dataset.page === pageId) {
+
       item.classList.add("active");
+
     }
 
   });
 
+
   window.scrollTo({
+
     top: 0,
     behavior: "smooth"
+
   });
 
+
   if (pageId === "myPage") {
+
     renderMyHistory();
+
   }
+
 }
 
 
@@ -918,8 +1090,12 @@ document.querySelectorAll(".washer").forEach(el => {
 
   el.addEventListener("click", () => {
 
-    document.querySelectorAll(".washer")
-      .forEach(x => x.classList.remove("active"));
+    document
+      .querySelectorAll(".washer")
+      .forEach(x =>
+        x.classList.remove("active")
+      );
+
 
     el.classList.add("active");
 
@@ -936,8 +1112,12 @@ document.querySelectorAll(".age").forEach(el => {
 
   el.addEventListener("click", () => {
 
-    document.querySelectorAll(".age")
-      .forEach(x => x.classList.remove("active"));
+    document
+      .querySelectorAll(".age")
+      .forEach(x =>
+        x.classList.remove("active")
+      );
+
 
     el.classList.add("active");
 
@@ -954,9 +1134,12 @@ document.querySelectorAll(".symptom").forEach(el => {
 
   el.addEventListener("click", () => {
 
-    const value = Number(el.dataset.score);
+    const value =
+      Number(el.dataset.score);
+
 
     el.classList.toggle("active");
+
 
     if (el.classList.contains("active")) {
 
@@ -964,10 +1147,14 @@ document.querySelectorAll(".symptom").forEach(el => {
 
     } else {
 
-      const index = selectedSymptoms.indexOf(value);
+      const index =
+        selectedSymptoms.indexOf(value);
+
 
       if (index !== -1) {
+
         selectedSymptoms.splice(index, 1);
+
       }
 
     }
@@ -979,17 +1166,26 @@ document.querySelectorAll(".symptom").forEach(el => {
 
 /* ================= 사진 ================= */
 
-document.getElementById("photo").addEventListener("change", function(){
+document
+  .getElementById("photo")
+  .addEventListener("change", function(){
 
-  const file = this.files[0];
+    const file = this.files[0];
 
-  if (!file) return;
 
-  const preview = document.getElementById("preview");
+    if (!file) return;
 
-  preview.src = URL.createObjectURL(file);
 
-  preview.style.display = "block";
+    const preview =
+      document.getElementById("preview");
+
+
+    preview.src =
+      URL.createObjectURL(file);
+
+
+    preview.style.display =
+      "block";
 
 });
 
@@ -1000,91 +1196,164 @@ function diagnose(){
 
   if (!age) {
 
-    alert("세탁기 사용 기간을 선택해주세요.");
+    alert(
+      "세탁기 사용 기간을 선택해주세요."
+    );
 
     return;
+
   }
 
-  let score = selectedSymptoms.reduce(
-    (a,b) => a+b,
-    0
-  );
+
+  let score =
+    selectedSymptoms.reduce(
+      (a,b) => a+b,
+      0
+    );
 
 
-  if(age === "1~3년") score += 5;
-  if(age === "3~5년") score += 15;
-  if(age === "5년 이상") score += 25;
+  if (age === "1~3년")
+    score += 5;
+
+  if (age === "3~5년")
+    score += 15;
+
+  if (age === "5년 이상")
+    score += 25;
 
 
-  score = Math.min(score,100);
+  score =
+    Math.min(score,100);
 
 
-  document.getElementById("result").style.display = "block";
+  document
+    .getElementById("result")
+    .style.display = "block";
 
 
-  document.getElementById("score").textContent =
-    score + "점";
+  document
+    .getElementById("score")
+    .textContent =
+      score + "점";
 
 
   let level;
   let recommendation;
 
 
-  if(score >= 70){
+  if (score >= 70) {
 
-    level = "🔴 청소 필요도 높음";
+    level =
+      "🔴 청소 필요도 높음";
+
 
     recommendation =
       "내부 오염 가능성이 높습니다. 일반 세탁조 클리너만으로 해결하기 어려울 수 있어 전문 분해 세척을 권장합니다.";
 
-    document.getElementById("mold").textContent = "심함";
-    document.getElementById("detergent").textContent = "심함";
-    document.getElementById("scale").textContent = "보통";
-    document.getElementById("total").textContent = "높음";
+
+    document
+      .getElementById("mold")
+      .textContent = "심함";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "심함";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("total")
+      .textContent = "높음";
 
   }
 
-  else if(score >= 40){
+  else if (score >= 40) {
 
-    level = "🟠 청소 필요도 보통";
+    level =
+      "🟠 청소 필요도 보통";
+
 
     recommendation =
       "세탁조 클리너를 이용한 청소를 먼저 진행해보세요. 냄새나 찌꺼기가 계속된다면 전문 세척을 권장합니다.";
 
-    document.getElementById("mold").textContent = "보통";
-    document.getElementById("detergent").textContent = "보통";
-    document.getElementById("scale").textContent = "보통";
-    document.getElementById("total").textContent = "보통";
+
+    document
+      .getElementById("mold")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("total")
+      .textContent = "보통";
 
   }
 
   else {
 
-    level = "🟢 청소 필요도 낮음";
+    level =
+      "🟢 청소 필요도 낮음";
+
 
     recommendation =
       "현재 상태에서는 정기적인 세탁조 청소와 세탁 후 내부 건조만 잘 관리해도 좋습니다.";
 
-    document.getElementById("mold").textContent = "낮음";
-    document.getElementById("detergent").textContent = "낮음";
-    document.getElementById("scale").textContent = "낮음";
-    document.getElementById("total").textContent = "양호";
+
+    document
+      .getElementById("mold")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("total")
+      .textContent = "양호";
 
   }
 
 
-  document.getElementById("level").textContent =
-    level;
+  document
+    .getElementById("level")
+    .textContent =
+      level;
 
-  document.getElementById("recommendation")
-    .textContent = recommendation;
+
+  document
+    .getElementById("recommendation")
+    .textContent =
+      recommendation;
 
 
   /* 기록 저장 */
 
   const record = {
 
-    date: new Date().toLocaleString("ko-KR"),
+    date:
+      new Date()
+        .toLocaleString("ko-KR"),
 
     washer,
 
@@ -1097,13 +1366,17 @@ function diagnose(){
 
   let history =
     JSON.parse(
-      localStorage.getItem("washerHistory") || "[]"
+      localStorage.getItem(
+        "washerHistory"
+      ) || "[]"
     );
 
 
   history.unshift(record);
 
-  history = history.slice(0,5);
+
+  history =
+    history.slice(0,5);
 
 
   localStorage.setItem(
@@ -1117,9 +1390,12 @@ function diagnose(){
   renderMyHistory();
 
 
-  document.getElementById("result")
+  document
+    .getElementById("result")
     .scrollIntoView({
+
       behavior:"smooth"
+
     });
 
 }
@@ -1139,58 +1415,66 @@ function book(){
 function chat(){
 
   const input =
-    document.getElementById("question");
+    document.getElementById(
+      "question"
+    );
+
 
   const text =
     input.value.trim();
+
 
   if(!text) return;
 
 
   const messages =
-    document.getElementById("messages");
+    document.getElementById(
+      "messages"
+    );
 
 
   messages.innerHTML +=
-    `<div class="user">${escapeHtml(text)}</div>`;
+    `<div class="user">
+      ${escapeHtml(text)}
+    </div>`;
 
 
   let answer =
     "증상을 조금 더 확인해보는 것이 좋습니다.";
 
 
-  if(
+  if (
     text.includes("냄새") ||
     text.includes("악취")
-  ){
+  ) {
 
     answer =
       "세탁기 냄새는 세탁조 내부의 세제 찌꺼기나 오염물 때문에 발생할 수 있어요. 세탁 후 문이나 뚜껑을 열어 내부를 건조하고 정기적인 세탁조 청소를 권장합니다.";
 
   }
 
-  else if(
+  else if (
     text.includes("검은") ||
     text.includes("찌꺼기")
-  ){
+  ) {
 
     answer =
       "검은 찌꺼기가 반복해서 나온다면 내부 오염이 상당할 가능성이 있습니다. 세탁조 클리너로 먼저 관리하고 계속 발생한다면 전문 세척을 고려해보세요.";
 
   }
 
-  else if(
+  else if (
     text.includes("곰팡이")
-  ){
+  ) {
 
     answer =
       "눈에 보이는 곰팡이가 있다면 단순 세탁조 클리너만으로 모든 오염이 제거된다고 보기는 어렵습니다. 오염 정도에 따라 전문 세척이 더 적합할 수 있어요.";
 
   }
 
-  else if(
+  else if (
     text.includes("청소")
-  ){
+  ) {
 
     answer =
       "세탁기 청소는 세탁조, 세제통, 고무패킹 등 오염 부위를 함께 관리하는 것이 좋습니다. 심한 오염은 전문 세척을 추천합니다.";
@@ -1201,7 +1485,10 @@ function chat(){
   setTimeout(() => {
 
     messages.innerHTML +=
-      `<div class="bot">${answer}</div>`;
+      `<div class="bot">
+        ${answer}
+      </div>`;
+
 
     messages.scrollTop =
       messages.scrollHeight;
@@ -1228,63 +1515,31 @@ function escapeHtml(text){
 }
 
 
-/* ================= 기록 표시 ================= */
+/* ================= 기록 가져오기 ================= */
 
 function getHistory(){
 
   return JSON.parse(
-    localStorage.getItem("washerHistory") || "[]"
+    localStorage.getItem(
+      "washerHistory"
+    ) || "[]"
   );
 
 }
 
 
+/* ================= 기록 표시 ================= */
+
 function renderHistory(){
 
   const list =
-    document.getElementById("historyList");
-
-  const history = getHistory();
-
-
-  if(history.length === 0){
-
-    list.textContent =
-      "진단 기록이 없습니다.";
-
-    return;
-
-  }
+    document.getElementById(
+      "historyList"
+    );
 
 
-  list.innerHTML =
-    history.map(item => `
-
-      <div class="history-item">
-
-        🧺 ${escapeHtml(item.washer)}
-        · ${escapeHtml(item.age)}
-        <br>
-
-        🔎 청소 필요도 ${item.score}점
-
-        <br>
-
-        <small>${escapeHtml(item.date)}</small>
-
-      </div>
-
-    `).join("");
-
-}
-
-
-function renderMyHistory(){
-
-  const list =
-    document.getElementById("myHistoryList");
-
-  const history = getHistory();
+  const history =
+    getHistory();
 
 
   if(history.length === 0){
@@ -1302,17 +1557,21 @@ function renderMyHistory(){
 
       <div class="history-item">
 
-        🧺 ${escapeHtml(item.washer)}
-        · ${escapeHtml(item.age)}
+        🧺
+        ${escapeHtml(item.washer)}
+        ·
+        ${escapeHtml(item.age)}
 
         <br>
 
         🔎 청소 필요도
-        <strong>${item.score}점</strong>
+        ${item.score}점
 
         <br>
 
-        <small>${escapeHtml(item.date)}</small>
+        <small>
+          ${escapeHtml(item.date)}
+        </small>
 
       </div>
 
@@ -1321,11 +1580,67 @@ function renderMyHistory(){
 }
 
 
+/* ================= 마이페이지 기록 ================= */
+
+function renderMyHistory(){
+
+  const list =
+    document.getElementById(
+      "myHistoryList"
+    );
+
+
+  const history =
+    getHistory();
+
+
+  if(history.length === 0){
+
+    list.textContent =
+      "진단 기록이 없습니다.";
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    history.map(item => `
+
+      <div class="history-item">
+
+        🧺
+        ${escapeHtml(item.washer)}
+        ·
+        ${escapeHtml(item.age)}
+
+        <br>
+
+        🔎 청소 필요도
+        <strong>
+          ${item.score}점
+        </strong>
+
+        <br>
+
+        <small>
+          ${escapeHtml(item.date)}
+        </small>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* ================= 초기 실행 ================= */
+
 renderHistory();
+
 renderMyHistory();
 
 </script>
 
 </body>
 </html>
-
