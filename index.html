@@ -1,982 +1,1092 @@
-<!DOCTYPE html> <html lang="ko"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>다케어 세탁클린</title> <style>
-{
-box-sizing: border-box;
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>다케어 세탁클린</title>
+
+<style>
+* {
+  box-sizing: border-box;
 }
+
 html {
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-margin: 0;
-background: #eef5ff;
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"Noto Sans KR",
-"Apple SD Gothic Neo",
-sans-serif;
-color: #172033;
+  margin: 0;
+  background: #eef5ff;
+  font-family:
+    -apple-system, BlinkMacSystemFont,
+    "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  color: #172033;
 }
 
 .app {
-width: 100%;
-max-width: 480px;
-min-height: 100vh;
-margin: auto;
-background: #fff;
-position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: auto;
+  background: #fff;
+  position: relative;
 }
 
-/* ================= 헤더 ================= */
-
 header {
-min-height: 62px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border-bottom: 1px solid #edf0f5;
-font-size: 19px;
-font-weight: 800;
-padding: 7px 10px;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 19px;
+  font-weight: 800;
+  padding: 7px 10px;
 }
 
 header span {
-color: #1167e8;
+  color: #1167e8;
 }
 
 .contact {
-font-size: 11px;
-color: #64748b;
-font-weight: 600;
-margin-top: 2px;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
-/* ================= 메인 ================= */
-
 main {
-padding: 22px 18px 100px;
+  padding: 22px 18px 100px;
 }
 
 .page {
-display: none;
+  display: none;
 }
 
 .page.active {
-display: block;
+  display: block;
 }
 
-/* ================= 히어로 ================= */
-
 .hero {
-background: linear-gradient(
-135deg,
-#eaf4ff,
-#f8fbff
-);
-
-border-radius: 22px;
-padding: 25px 20px;
-text-align: center;
+  background: linear-gradient(135deg,#eaf4ff,#f8fbff);
+  border-radius: 22px;
+  padding: 25px 20px;
+  text-align: center;
 }
 
 .robot {
-font-size: 48px;
+  font-size: 48px;
 }
 
 .hero h1 {
-margin: 8px 0;
-font-size: 28px;
+  margin: 8px 0;
+  font-size: 28px;
 }
 
 .hero p {
-margin: 0;
-color: #64748b;
-line-height: 1.6;
-}
-
-/* ================= 사진 업로드 ================= */
-
-.upload-buttons {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
-margin-top: 18px;
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
 }
 
 .upload {
-display: flex;
-min-height: 120px;
-padding: 18px 10px;
-border: 2px dashed #91bfff;
-border-radius: 18px;
-text-align: center;
-background: #f8fbff;
-cursor: pointer;
-
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-transition: .2s;
-}
-
-.upload:hover {
-border-color: #1267e8;
-background: #eef6ff;
+  display: block;
+  margin-top: 18px;
+  padding: 18px;
+  border: 2px dashed #91bfff;
+  border-radius: 18px;
+  text-align: center;
+  background: #f8fbff;
+  cursor: pointer;
 }
 
 .upload strong {
-display: block;
-color: #1267df;
-margin-bottom: 6px;
-font-size: 15px;
-}
-
-.upload-text {
-color: #64748b;
-font-size: 12px;
-line-height: 1.5;
+  display: block;
+  color: #1267df;
+  margin-bottom: 5px;
 }
 
 #preview {
-display: none;
-width: 100%;
-max-height: 230px;
-object-fit: cover;
-border-radius: 14px;
-margin-top: 12px;
+  display: none;
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-top: 12px;
 }
 
-/* ================= 섹션 ================= */
-
 .section {
-margin-top: 25px;
+  margin-top: 25px;
 }
 
 .section h2 {
-font-size: 17px;
-margin-bottom: 12px;
+  font-size: 17px;
+  margin-bottom: 12px;
 }
 
-/* ================= 선택 버튼 ================= */
-
 .grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .option {
-border: 1px solid #dce3ed;
-border-radius: 14px;
-padding: 15px 10px;
-background: #fff;
-cursor: pointer;
-text-align: center;
-transition: .2s;
+  border: 1px solid #dce3ed;
+  border-radius: 14px;
+  padding: 15px 10px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: .2s;
 }
 
 .option:hover {
-border-color: #1670ed;
+  border-color: #1670ed;
 }
 
 .option.active {
-color: #0965df;
-border: 2px solid #1670ed;
-background: #eef6ff;
-font-weight: 700;
+  color: #0965df;
+  border: 2px solid #1670ed;
+  background: #eef6ff;
+  font-weight: 700;
 }
 
-/* ================= 증상 ================= */
-
 .symptoms {
-display: grid;
-gap: 9px;
+  display: grid;
+  gap: 9px;
 }
 
 .symptom {
-border: 1px solid #e0e5ed;
-padding: 14px;
-border-radius: 13px;
-cursor: pointer;
-transition: .2s;
+  border: 1px solid #e0e5ed;
+  padding: 14px;
+  border-radius: 13px;
+  cursor: pointer;
 }
 
 .symptom.active {
-border-color: #1670ed;
-background: #eef6ff;
-color: #0965df;
-font-weight: 700;
+  border-color: #1670ed;
+  background: #eef6ff;
+  color: #0965df;
+  font-weight: 700;
 }
-
-/* ================= 기본 버튼 ================= */
 
 .primary {
-width: 100%;
-border: 0;
-border-radius: 15px;
-padding: 17px;
-margin-top: 25px;
-background: #1267e8;
-color: white;
-font-size: 17px;
-font-weight: 800;
-cursor: pointer;
-transition: .2s;
-}
-
-.primary:hover {
-background: #095bcf;
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  padding: 17px;
+  margin-top: 25px;
+  background: #1267e8;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .primary:active {
-transform: scale(.98);
+  transform: scale(.98);
 }
 
-/* ================= 진단 결과 ================= */
-
 .result {
-display: none;
-margin-top: 25px;
+  display: none;
+  margin-top: 25px;
 }
 
 .score {
-padding: 24px;
-border-radius: 20px;
-background: #fff2f2;
-border: 1px solid #ffd1d1;
-text-align: center;
+  padding: 24px;
+  border-radius: 20px;
+  background: #fff2f2;
+  border: 1px solid #ffd1d1;
+  text-align: center;
 }
 
 .score small {
-color: #777;
+  color: #777;
 }
 
 .score-number {
-font-size: 42px;
-font-weight: 900;
-color: #ef4444;
-margin: 7px;
+  font-size: 42px;
+  font-weight: 900;
+  color: #ef4444;
+  margin: 7px;
 }
 
 .analysis {
-margin-top: 15px;
-padding: 18px;
-border-radius: 16px;
-background: #f7f9fc;
+  margin-top: 15px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f7f9fc;
 }
 
 .analysis-row {
-display: flex;
-justify-content: space-between;
-padding: 10px 0;
-border-bottom: 1px solid #e7ebf1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e7ebf1;
 }
 
 .analysis-row:last-child {
-border-bottom: 0;
+  border-bottom: 0;
 }
 
 .bad {
-color: #ef4444;
-font-weight: 800;
+  color: #ef4444;
+  font-weight: 800;
 }
 
 .mid {
-color: #f59e0b;
-font-weight: 800;
+  color: #f59e0b;
+  font-weight: 800;
 }
 
 .good {
-color: #16a34a;
-font-weight: 800;
+  color: #16a34a;
+  font-weight: 800;
 }
 
-/* ================= 추천 ================= */
-
 .recommend {
-margin-top: 15px;
-padding: 18px;
-border-radius: 17px;
-background: #edf7ff;
+  margin-top: 15px;
+  padding: 18px;
+  border-radius: 17px;
+  background: #edf7ff;
 }
 
 .recommend h3 {
-margin-top: 0;
-color: #0965df;
+  margin-top: 0;
+  color: #0965df;
 }
 
-/* ================= AI 상담 ================= */
-
 .chat {
-margin-top: 30px;
+  margin-top: 30px;
 }
 
 .messages {
-background: #f6f8fb;
-border-radius: 18px;
-padding: 15px;
-min-height: 120px;
-max-height: 400px;
-overflow-y: auto;
+  background: #f6f8fb;
+  border-radius: 18px;
+  padding: 15px;
+  min-height: 120px;
 }
 
-.bot,
-.user {
-max-width: 85%;
-padding: 11px 14px;
-border-radius: 15px;
-margin-bottom: 9px;
-line-height: 1.5;
+.bot, .user {
+  max-width: 85%;
+  padding: 11px 14px;
+  border-radius: 15px;
+  margin-bottom: 9px;
+  line-height: 1.5;
 }
 
 .bot {
-background: white;
-border: 1px solid #e5e9ef;
+  background: white;
+  border: 1px solid #e5e9ef;
 }
 
 .user {
-background: #1267e8;
-color: white;
-margin-left: auto;
+  background: #1267e8;
+  color: white;
+  margin-left: auto;
 }
 
 .chat-input {
-display: flex;
-margin-top: 10px;
-gap: 8px;
+  display: flex;
+  margin-top: 10px;
+  gap: 8px;
 }
 
 .chat-input input {
-flex: 1;
-border: 1px solid #dce3ed;
-border-radius: 13px;
-padding: 13px;
-outline: none;
-}
-
-.chat-input input:focus {
-border-color: #1267e8;
+  flex: 1;
+  border: 1px solid #dce3ed;
+  border-radius: 13px;
+  padding: 13px;
+  outline: none;
 }
 
 .chat-input button {
-width: 48px;
-border: 0;
-border-radius: 13px;
-background: #1267e8;
-color: white;
-cursor: pointer;
+  width: 48px;
+  border: 0;
+  border-radius: 13px;
+  background: #1267e8;
+  color: white;
+  cursor: pointer;
 }
 
-/* ================= 기록 ================= */
-
 .history {
-margin-top: 30px;
+  margin-top: 30px;
 }
 
 .history-item {
-padding: 14px;
-background: #f7f9fc;
-border-radius: 13px;
-margin-bottom: 8px;
-font-size: 14px;
+  padding: 14px;
+  background: #f7f9fc;
+  border-radius: 13px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
-/* ================= 청소방법 ================= */
+/* 청소방법 */
 
 .info-card {
-background: #f7f9fc;
-border-radius: 17px;
-padding: 18px;
-margin-top: 12px;
+  background: #f7f9fc;
+  border-radius: 17px;
+  padding: 18px;
+  margin-top: 12px;
 }
 
 .info-card h3 {
-margin-top: 0;
-color: #0965df;
+  margin-top: 0;
+  color: #0965df;
 }
 
 .info-step {
-padding: 13px 0;
-border-bottom: 1px solid #e5e9ef;
-line-height: 1.6;
+  padding: 13px 0;
+  border-bottom: 1px solid #e5e9ef;
+  line-height: 1.6;
 }
 
 .info-step:last-child {
-border-bottom: 0;
+  border-bottom: 0;
 }
 
-/* ================= 예약 ================= */
+/* 예약 */
 
 .booking-card {
-margin-top: 15px;
-background: linear-gradient(
-135deg,
-#edf7ff,
-#f8fbff
-);
-
-border-radius: 20px;
-padding: 25px 20px;
-text-align: center;
-border: 1px solid #dbeafe;
+  margin-top: 15px;
+  background: linear-gradient(135deg,#edf7ff,#f8fbff);
+  border-radius: 20px;
+  padding: 25px 20px;
+  text-align: center;
+  border: 1px solid #dbeafe;
 }
 
 .phone-number {
-font-size: 25px;
-color: #1267e8;
-font-weight: 900;
-margin: 15px 0;
+  font-size: 25px;
+  color: #1267e8;
+  font-weight: 900;
+  margin: 15px 0;
 }
 
 .call-button {
-display: block;
-width: 100%;
-padding: 16px;
-border-radius: 15px;
-background: #16a34a;
-color: white;
-text-decoration: none;
-font-size: 17px;
-font-weight: 800;
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: 15px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 800;
 }
 
-/* ================= 마이 ================= */
+/* 마이 */
 
 .profile-card {
-background: #f7f9fc;
-border-radius: 18px;
-padding: 20px;
-text-align: center;
+  background: #f7f9fc;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
 }
 
 .profile-name {
-font-size: 21px;
-font-weight: 800;
+  font-size: 21px;
+  font-weight: 800;
 }
 
 .profile-phone {
-color: #64748b;
-margin-top: 5px;
+  color: #64748b;
+  margin-top: 5px;
 }
 
-/* ================= 하단 메뉴 ================= */
+/* 하단 메뉴 */
 
 footer {
-position: fixed;
-bottom: 0;
-left: 50%;
-transform: translateX(-50%);
-
-width: 100%;
-max-width: 480px;
-height: 65px;
-
-background: white;
-border-top: 1px solid #e8ecf2;
-
-display: flex;
-justify-content: space-around;
-align-items: center;
-
-color: #738096;
-font-size: 12px;
-
-z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 65px;
+  background: white;
+  border-top: 1px solid #e8ecf2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #738096;
+  font-size: 12px;
+  z-index: 100;
 }
 
 footer div {
-text-align: center;
-cursor: pointer;
-min-width: 55px;
-padding: 5px;
-transition: .2s;
+  text-align: center;
+  cursor: pointer;
+  min-width: 55px;
+  padding: 5px;
+  transition: .2s;
 }
 
 footer div.active {
-color: #1267e8;
-font-weight: 800;
+  color: #1267e8;
+  font-weight: 800;
 }
 
 footer b {
-display: block;
-font-size: 20px;
-margin-bottom: 2px;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 2px;
 }
+</style>
+</head>
 
-/* ================= 모바일 ================= */
+<body>
 
-@media (max-width: 360px) {
+<div class="app">
 
-.upload-buttons {
-grid-template-columns: 1fr;
-}
+<header>
+  <div>🧼 <span>다케어 세탁클린</span>&nbsp;AI</div>
+  <div class="contact">유동욱 / 010-9013-9047</div>
+</header>
 
-.upload {
-min-height: 90px;
-}
+<main>
 
-}
+<!-- ================= 홈 ================= -->
 
-</style> </head> <body> <div class="app"> <!-- ================= 헤더 ================= --> <header> <div> 🧼 <span>다케어 세탁클린</span>&nbsp;AI </div> <div class="contact"> 유동욱 / 010-9013-9047 </div> </header> <main> <!-- ================================================== 홈 ================================================== --> <section id="homePage" class="page active" > <section class="hero"> <div class="robot"> 🤖 </div> <h1> 세탁기 상태를<br> AI로 진단해보세요 </h1> <p> 냄새·곰팡이·찌꺼기 등<br> 세탁기 상태를 간단하게 확인할 수 있어요. </p> <!-- ================= 사진 촬영 / 업로드 ================= --> <div class="upload-buttons">
-<!-- 사진 촬영 -->
+<section id="homePage" class="page active">
 
-<label class="upload">
+<section class="hero">
 
-  <strong>
-    📷 사진 촬영
-  </strong>
+  <div class="robot">🤖</div>
 
-  <span class="upload-text">
-    카메라로<br>
-    세탁기 사진을 찍어주세요.
-  </span>
+  <h1>
+    세탁기 상태를<br>
+    AI로 진단해보세요
+  </h1>
 
-  <input
-    id="cameraPhoto"
-    type="file"
-    accept="image/*"
-    capture="environment"
-    hidden
+  <p>
+    냄새·곰팡이·찌꺼기 등<br>
+    세탁기 상태를 간단하게 확인할 수 있어요.
+  </p>
+
+  <label class="upload">
+
+    <strong>📷 세탁기 사진 올리기</strong>
+
+    사진을 올리면 진단에 참고합니다.
+
+    <input
+      id="photo"
+      type="file"
+      accept="image/*"
+      capture="environment"
+      hidden
+    >
+
+    <img id="preview">
+
+  </label>
+
+</section>
+
+
+<section class="section">
+
+<h2>1. 세탁기 종류</h2>
+
+<div class="grid">
+
+  <div
+    class="option washer active"
+    data-value="통돌이"
   >
+    🧺<br>
+    통돌이
+  </div>
 
-</label>
-
-<!-- 사진 업로드 -->
-
-<label class="upload">
-
-  <strong>
-    🖼️ 사진 업로드
-  </strong>
-
-  <span class="upload-text">
-    갤러리에서<br>
-    사진을 선택해주세요.
-  </span>
-
-  <input
-    id="galleryPhoto"
-    type="file"
-    accept="image/*"
-    hidden
+  <div
+    class="option washer"
+    data-value="드럼"
   >
+    🔵<br>
+    드럼
+  </div>
 
-</label>
+</div>
 
-</div> <!-- 사진 미리보기 -->
-<img
-id="preview"
-alt="세탁기 사진 미리보기"
+</section>
 
-</section> <!-- ================= 세탁기 종류 ================= --> <section class="section"> <h2> 1. 세탁기 종류 </h2> <div class="grid"> <div class="option washer active" data-value="통돌이" > 🧺<br> 통돌이 </div> <div class="option washer" data-value="드럼" > 🔵<br> 드럼 </div> </div> </section> <!-- ================= 사용 기간 ================= --> <section class="section"> <h2> 2. 사용 기간 </h2> <div class="grid"> <div class="option age" data-value="1년 미만" > 1년 미만 </div> <div class="option age" data-value="1~3년" > 1~3년 </div> <div class="option age" data-value="3~5년" > 3~5년 </div> <div class="option age" data-value="5년 이상" > 5년 이상 </div> </div> </section> <!-- ================= 증상 ================= --> <section class="section"> <h2> 3. 현재 어떤 문제가 있나요? </h2> <div class="symptoms"> <div class="symptom" data-score="25" > 👃 냄새가 나요 </div> <div class="symptom" data-score="30" > 🦠 곰팡이가 보여요 </div> <div class="symptom" data-score="25" > 🖤 검은 찌꺼기가 나와요 </div> <div class="symptom" data-score="15" > 💧 물때가 있어요 </div> <div class="symptom" data-score="10" > ✨ 특별한 문제는 없어요 </div> </div> </section> <!-- ================= 진단 버튼 ================= -->
+
+<section class="section">
+
+<h2>2. 사용 기간</h2>
+
+<div class="grid">
+
+  <div
+    class="option age"
+    data-value="1년 미만"
+  >
+    1년 미만
+  </div>
+
+  <div
+    class="option age"
+    data-value="1~3년"
+  >
+    1~3년
+  </div>
+
+  <div
+    class="option age"
+    data-value="3~5년"
+  >
+    3~5년
+  </div>
+
+  <div
+    class="option age"
+    data-value="5년 이상"
+  >
+    5년 이상
+  </div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>3. 현재 어떤 문제가 있나요?</h2>
+
+<div class="symptoms">
+
+  <div
+    class="symptom"
+    data-score="25"
+  >
+    👃 냄새가 나요
+  </div>
+
+  <div
+    class="symptom"
+    data-score="30"
+  >
+    🦠 곰팡이가 보여요
+  </div>
+
+  <div
+    class="symptom"
+    data-score="25"
+  >
+    🖤 검은 찌꺼기가 나와요
+  </div>
+
+  <div
+    class="symptom"
+    data-score="15"
+  >
+    💧 물때가 있어요
+  </div>
+
+  <div
+    class="symptom"
+    data-score="10"
+  >
+    ✨ 특별한 문제는 없어요
+  </div>
+
+</div>
+
+</section>
+
+
 <button
-class="primary"
-onclick="diagnose()"
-
-🔍 AI 세탁기 진단하기
+  class="primary"
+  onclick="diagnose()"
+>
+  🔍 AI 세탁기 진단하기
 </button>
 
-<!-- ================= 진단 결과 ================= --> <section id="result" class="result" > <div class="score">
-<small>
-  AI 청소 필요도
-</small>
+
+<section
+  id="result"
+  class="result"
+>
+
+  <div class="score">
+
+    <small>AI 청소 필요도</small>
+
+    <div
+      class="score-number"
+      id="score"
+    >
+      0
+    </div>
+
+    <strong id="level">
+      분석 중
+    </strong>
+
+  </div>
+
+
+  <div class="analysis">
+
+    <h3>🔎 AI 분석 결과</h3>
+
+    <div class="analysis-row">
+      <span>곰팡이 / 오염</span>
+      <span
+        id="mold"
+        class="bad"
+      >
+        -
+      </span>
+    </div>
+
+    <div class="analysis-row">
+      <span>세제 찌꺼기</span>
+      <span
+        id="detergent"
+        class="mid"
+      >
+        -
+      </span>
+    </div>
+
+    <div class="analysis-row">
+      <span>물때 / 석회</span>
+      <span
+        id="scale"
+        class="mid"
+      >
+        -
+      </span>
+    </div>
+
+    <div class="analysis-row">
+      <span>종합 상태</span>
+      <span
+        id="total"
+        class="bad"
+      >
+        -
+      </span>
+    </div>
+
+  </div>
+
+
+  <div class="recommend">
+
+    <h3>🧼 AI 추천</h3>
+
+    <p id="recommendation"></p>
+
+    <button
+      class="primary"
+      onclick="showPage('bookingPage')"
+    >
+      📅 전문 청소 예약 문의
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="chat">
+
+<h2>🤖 다케어 세탁클린 AI에게 물어보세요</h2>
 
 <div
-  class="score-number"
-  id="score"
+  class="messages"
+  id="messages"
 >
-  0
+
+  <div class="bot">
+    안녕하세요! 👋<br>
+    세탁기 냄새나 곰팡이에 대해 궁금한 점을 물어보세요.
+  </div>
+
 </div>
 
-<strong id="level">
-  분석 중
-</strong>
 
-</div> <div class="analysis">
-<h3>
-  🔎 AI 분석 결과
-</h3>
+<div class="chat-input">
 
-<div class="analysis-row">
-
-  <span>
-    곰팡이 / 오염
-  </span>
-
-  <span
-    id="mold"
-    class="bad"
+  <input
+    id="question"
+    placeholder="예: 검은 찌꺼기가 계속 나와요"
   >
-    -
-  </span>
+
+  <button onclick="chat()">
+    ➤
+  </button>
 
 </div>
 
-<div class="analysis-row">
+</section>
 
-  <span>
-    세제 찌꺼기
-  </span>
 
-  <span
-    id="detergent"
-    class="mid"
-  >
-    -
-  </span>
+<section class="history">
 
-</div>
+<h2>📋 최근 진단</h2>
 
-<div class="analysis-row">
-
-  <span>
-    물때 / 석회
-  </span>
-
-  <span
-    id="scale"
-    class="mid"
-  >
-    -
-  </span>
-
-</div>
-
-<div class="analysis-row">
-
-  <span>
-    종합 상태
-  </span>
-
-  <span
-    id="total"
-    class="bad"
-  >
-    -
-  </span>
-
-</div>
-
-</div> <!-- ================= 추천 ================= --> <div class="recommend">
-<h3>
-  🧼 AI 추천
-</h3>
-
-<p id="recommendation"></p>
-
-<button
-  class="primary"
-  onclick="showPage('bookingPage')"
->
-  📅 전문 청소 예약 문의
-</button>
-
-</div> </section> <!-- ================= AI 상담 ================= --> <section class="chat"> <h2> 🤖 다케어 세탁클린 AI에게 물어보세요 </h2> <div class="messages" id="messages" > <div class="bot">
-안녕하세요! 👋<br>
-
-세탁기 냄새나 곰팡이에 대해
-궁금한 점을 물어보세요.
-
-</div> </div> <div class="chat-input">
-<input
-id="question"
-placeholder="예: 검은 찌꺼기가 계속 나와요"
-
-<button onclick="chat()"> ➤ </button> </div> </section> <!-- ================= 최근 진단 ================= --> <section class="history"> <h2> 📋 최근 진단 </h2> <div id="historyList"> 진단 기록이 없습니다. </div> </section> </section> <!-- ================================================== 진단 페이지 ================================================== --> <section id="diagnosisPage" class="page" > <div class="hero">
-<div class="robot">
-  🔍
-</div>
-
-<h1>
-  세탁기 진단
-</h1>
-
-<p>
-  아래에서 세탁기 상태를 선택하면<br>
-  청소 필요도를 확인할 수 있습니다.
-</p>
-
-</div> <div class="section">
-<button
-  class="primary"
-  onclick="showPage('homePage')"
->
-  🧺 진단 시작하기
-</button>
-
-</div> </section> <!-- ================================================== 청소방법 ================================================== --> <section id="cleanPage" class="page" > <div class="hero">
-<div class="robot">
-  🧼
-</div>
-
-<h1>
-  세탁기 청소방법
-</h1>
-
-<p>
-  세탁기를 깨끗하게 관리하는<br>
-  기본적인 방법을 알려드릴게요.
-</p>
-
-</div> <div class="info-card">
-<h3>
-  ① 세탁조 청소
-</h3>
-
-<div class="info-step">
-
-  세탁조 클리너를 사용하여 정기적으로
-  세탁조 내부를 청소해주세요.
-
-</div>
-
-<div class="info-step">
-
-  일반적으로 제품 설명서의 사용 방법과
-  권장 주기를 따라주세요.
-
-</div>
-
-</div> <div class="info-card">
-<h3>
-  ② 세탁 후 건조
-</h3>
-
-<div class="info-step">
-
-  세탁이 끝난 후 드럼세탁기는 문을,
-  통돌이 세탁기는 뚜껑을 열어
-  내부를 건조해주세요.
-
-</div>
-
-<div class="info-step">
-
-  습기가 오래 남으면 냄새와 곰팡이가
-  발생하기 쉬워집니다.
-
-</div>
-
-</div> <div class="info-card">
-<h3>
-  ③ 세제통 관리
-</h3>
-
-<div class="info-step">
-
-  세제와 섬유유연제가 굳어 남지 않도록
-  세제통을 정기적으로 분리하여
-  세척해주세요.
-
-</div>
-
-</div> <div class="info-card">
-<h3>
-  ④ 고무패킹 확인
-</h3>
-
-<div class="info-step">
-
-  드럼세탁기의 고무패킹에는 물과 이물질이
-  남을 수 있으므로 주기적으로 닦아주세요.
-
-</div>
-
-</div> </section> <!-- ================================================== 예약 ================================================== --> <section id="bookingPage" class="page" > <div class="hero">
-<div class="robot">
-  📅
-</div>
-
-<h1>
-  전문 청소 예약 문의
-</h1>
-
-<p>
-  세탁기 상태가 심하거나<br>
-  전문 청소가 필요하다면 문의해주세요.
-</p>
-
-</div> <div class="booking-card">
-<div>
-  📞 문의 전화
-</div>
-
-<div class="phone-number">
-  010-9013-9047
-</div>
-
-<a
-  class="call-button"
-  href="tel:010-9013-9047"
->
-  📞 전화 걸기
-</a>
-
-<p
-  style="
-    color:#64748b;
-    font-size:13px;
-    margin-top:15px;
-  "
->
-
-  휴대폰에서는 버튼을 누르면<br>
-  바로 전화 연결 화면으로 이동합니다.
-
-</p>
-
-</div> </section> <!-- ================================================== 마이페이지 ================================================== --> <section id="myPage" class="page" > <div class="hero">
-<div class="robot">
-  👤
-</div>
-
-<h1>
-  마이 페이지
-</h1>
-
-<p>
-  내 정보와 최근 세탁기 진단 기록을<br>
-  확인할 수 있습니다.
-</p>
-
-</div> <div class="profile-card" style="margin-top:15px;" >
-<div class="profile-name">
-  유동욱
-</div>
-
-<div class="profile-phone">
-  010-9013-9047
-</div>
-
-</div> <div class="history">
-<h2>
-  📋 최근 진단
-</h2>
-
-<div id="myHistoryList">
+<div id="historyList">
   진단 기록이 없습니다.
 </div>
 
-</div> </section> </main> <!-- ================================================== 하단 메뉴 ================================================== --> <footer> <div class="nav-item active" data-page="homePage" >
-<b>🏠</b>
-홈
+</section>
 
-</div> <div class="nav-item" data-page="diagnosisPage" >
-<b>🔍</b>
-진단
+</section>
 
-</div> <div class="nav-item" data-page="cleanPage" >
-<b>🧼</b>
-청소방법
 
-</div> <div class="nav-item" data-page="bookingPage" >
-<b>📅</b>
-예약
+<!-- ================= 진단 ================= -->
 
-</div> <div class="nav-item" data-page="myPage" >
-<b>👤</b>
-마이
+<section
+  id="diagnosisPage"
+  class="page"
+>
 
-</div> </footer> </div> <script>
-/* ==================================================
-기본 변수
-================================================== */
+  <div class="hero">
+
+    <div class="robot">🔍</div>
+
+    <h1>세탁기 진단</h1>
+
+    <p>
+      아래에서 세탁기 상태를 선택하면<br>
+      청소 필요도를 확인할 수 있습니다.
+    </p>
+
+  </div>
+
+  <div class="section">
+
+    <button
+      class="primary"
+      onclick="showPage('homePage')"
+    >
+      🧺 진단 시작하기
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= 청소방법 ================= -->
+
+<section
+  id="cleanPage"
+  class="page"
+>
+
+  <div class="hero">
+
+    <div class="robot">🧼</div>
+
+    <h1>세탁기 청소방법</h1>
+
+    <p>
+      세탁기를 깨끗하게 관리하는<br>
+      기본적인 방법을 알려드릴게요.
+    </p>
+
+  </div>
+
+
+  <div class="info-card">
+
+    <h3>① 세탁조 청소</h3>
+
+    <div class="info-step">
+      세탁조 클리너를 사용하여 정기적으로
+      세탁조 내부를 청소해주세요.
+    </div>
+
+    <div class="info-step">
+      일반적으로 제품 설명서의 사용 방법과
+      권장 주기를 따라주세요.
+    </div>
+
+  </div>
+
+
+  <div class="info-card">
+
+    <h3>② 세탁 후 건조</h3>
+
+    <div class="info-step">
+      세탁이 끝난 후 드럼세탁기는 문을,
+      통돌이 세탁기는 뚜껑을 열어 내부를 건조해주세요.
+    </div>
+
+    <div class="info-step">
+      습기가 오래 남으면 냄새와 곰팡이가
+      발생하기 쉬워집니다.
+    </div>
+
+  </div>
+
+
+  <div class="info-card">
+
+    <h3>③ 세제통 관리</h3>
+
+    <div class="info-step">
+      세제와 섬유유연제가 굳어 남지 않도록
+      세제통을 정기적으로 분리하여 세척해주세요.
+    </div>
+
+  </div>
+
+
+  <div class="info-card">
+
+    <h3>④ 고무패킹 확인</h3>
+
+    <div class="info-step">
+      드럼세탁기의 고무패킹에는 물과 이물질이
+      남을 수 있으므로 주기적으로 닦아주세요.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= 예약 ================= -->
+
+<section
+  id="bookingPage"
+  class="page"
+>
+
+  <div class="hero">
+
+    <div class="robot">📅</div>
+
+    <h1>전문 청소 예약 문의</h1>
+
+    <p>
+      세탁기 상태가 심하거나<br>
+      전문 청소가 필요하다면 문의해주세요.
+    </p>
+
+  </div>
+
+
+  <div class="booking-card">
+
+    <div>📞 문의 전화</div>
+
+    <div class="phone-number">
+      010-9013-9047
+    </div>
+
+    <a
+      class="call-button"
+      href="tel:010-9013-9047"
+    >
+      📞 전화 걸기
+    </a>
+
+    <p
+      style="
+        color:#64748b;
+        font-size:13px;
+        margin-top:15px;
+      "
+    >
+      휴대폰에서는 버튼을 누르면<br>
+      바로 전화 연결 화면으로 이동합니다.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= 마이 ================= -->
+
+<section
+  id="myPage"
+  class="page"
+>
+
+  <div class="hero">
+
+    <div class="robot">👤</div>
+
+    <h1>마이 페이지</h1>
+
+    <p>
+      내 정보와 최근 세탁기 진단 기록을<br>
+      확인할 수 있습니다.
+    </p>
+
+  </div>
+
+
+  <div
+    class="profile-card"
+    style="margin-top:15px;"
+  >
+
+    <div class="profile-name">
+      유동욱
+    </div>
+
+    <div class="profile-phone">
+      010-9013-9047
+    </div>
+
+  </div>
+
+
+  <div class="history">
+
+    <h2>📋 최근 진단</h2>
+
+    <div id="myHistoryList">
+      진단 기록이 없습니다.
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= 하단 메뉴 ================= -->
+
+<footer>
+
+<div
+  class="nav-item active"
+  data-page="homePage"
+>
+  <b>🏠</b>
+  홈
+</div>
+
+<div
+  class="nav-item"
+  data-page="diagnosisPage"
+>
+  <b>🔍</b>
+  진단
+</div>
+
+<div
+  class="nav-item"
+  data-page="cleanPage"
+>
+  <b>🧼</b>
+  청소방법
+</div>
+
+<div
+  class="nav-item"
+  data-page="bookingPage"
+>
+  <b>📅</b>
+  예약
+</div>
+
+<div
+  class="nav-item"
+  data-page="myPage"
+>
+  <b>👤</b>
+  마이
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
 
 let washer = "통돌이";
-
 let age = "";
-
 let selectedSymptoms = [];
 
-/* ==================================================
-페이지 이동
-================================================== */
+
+/* ================= 페이지 이동 ================= */
 
 function showPage(pageId) {
 
-document
-.querySelectorAll(".page")
-.forEach(page => {
+  document.querySelectorAll(".page").forEach(page => {
 
-  page.classList.remove("active");
+    page.classList.remove("active");
 
-});
+  });
 
-const target =
-document.getElementById(pageId);
 
-if (target) {
+  const target =
+    document.getElementById(pageId);
 
-target.classList.add("active");
 
-}
+  if (target) {
 
-document
-.querySelectorAll(".nav-item")
-.forEach(item => {
-
-  item.classList.remove("active");
-
-  if (
-    item.dataset.page === pageId
-  ) {
-
-    item.classList.add("active");
+    target.classList.add("active");
 
   }
 
-});
 
-window.scrollTo({
+  document.querySelectorAll(".nav-item").forEach(item => {
 
-top: 0,
+    item.classList.remove("active");
 
-behavior: "smooth"
 
-});
+    if (item.dataset.page === pageId) {
 
-if (pageId === "myPage") {
+      item.classList.add("active");
 
-renderMyHistory();
+    }
 
-}
+  });
 
-}
 
-/* ==================================================
-하단 메뉴
-================================================== */
+  window.scrollTo({
 
-document
-.querySelectorAll(".nav-item")
-.forEach(item => {
+    top: 0,
+    behavior: "smooth"
 
-item.addEventListener(
-  "click",
-  () => {
+  });
 
-    showPage(
-      item.dataset.page
-    );
+
+  if (pageId === "myPage") {
+
+    renderMyHistory();
 
   }
-);
+
+}
+
+
+/* ================= 하단 메뉴 ================= */
+
+document.querySelectorAll(".nav-item").forEach(item => {
+
+  item.addEventListener("click", () => {
+
+    showPage(item.dataset.page);
+
+  });
 
 });
 
-/* ==================================================
-세탁기 종류
-================================================== */
 
-document
-.querySelectorAll(".washer")
-.forEach(el => {
+/* ================= 세탁기 종류 ================= */
 
-el.addEventListener(
-  "click",
-  () => {
+document.querySelectorAll(".washer").forEach(el => {
+
+  el.addEventListener("click", () => {
 
     document
       .querySelectorAll(".washer")
@@ -984,27 +1094,21 @@ el.addEventListener(
         x.classList.remove("active")
       );
 
+
     el.classList.add("active");
 
-    washer =
-      el.dataset.value;
+    washer = el.dataset.value;
 
-  }
-);
+  });
 
 });
 
-/* ==================================================
-사용 기간
-================================================== */
 
-document
-.querySelectorAll(".age")
-.forEach(el => {
+/* ================= 사용기간 ================= */
 
-el.addEventListener(
-  "click",
-  () => {
+document.querySelectorAll(".age").forEach(el => {
+
+  el.addEventListener("click", () => {
 
     document
       .querySelectorAll(".age")
@@ -1012,661 +1116,529 @@ el.addEventListener(
         x.classList.remove("active")
       );
 
+
     el.classList.add("active");
 
-    age =
-      el.dataset.value;
+    age = el.dataset.value;
 
-  }
-);
+  });
 
 });
 
-/* ==================================================
-증상 선택
-================================================== */
 
-document
-.querySelectorAll(".symptom")
-.forEach(el => {
+/* ================= 증상 ================= */
 
-el.addEventListener(
-  "click",
-  () => {
+document.querySelectorAll(".symptom").forEach(el => {
+
+  el.addEventListener("click", () => {
 
     const value =
-      Number(
-        el.dataset.score
-      );
+      Number(el.dataset.score);
 
-    el.classList.toggle(
-      "active"
-    );
 
-    if (
-      el.classList.contains(
-        "active"
-      )
-    ) {
+    el.classList.toggle("active");
 
-      selectedSymptoms.push(
-        value
-      );
 
-    }
+    if (el.classList.contains("active")) {
 
-    else {
+      selectedSymptoms.push(value);
+
+    } else {
 
       const index =
-        selectedSymptoms.indexOf(
-          value
-        );
+        selectedSymptoms.indexOf(value);
+
 
       if (index !== -1) {
 
-        selectedSymptoms.splice(
-          index,
-          1
-        );
+        selectedSymptoms.splice(index, 1);
 
       }
 
     }
 
-  }
-);
+  });
 
 });
 
-/* ==================================================
-사진 촬영
-================================================== */
+
+/* ================= 사진 ================= */
 
 document
-.getElementById("cameraPhoto")
-.addEventListener(
-"change",
-function() {
+  .getElementById("photo")
+  .addEventListener("change", function(){
 
-  handlePhoto(
-    this.files[0]
+    const file = this.files[0];
+
+
+    if (!file) return;
+
+
+    const preview =
+      document.getElementById("preview");
+
+
+    preview.src =
+      URL.createObjectURL(file);
+
+
+    preview.style.display =
+      "block";
+
+});
+
+
+/* ================= 진단 ================= */
+
+function diagnose(){
+
+  if (!age) {
+
+    alert(
+      "세탁기 사용 기간을 선택해주세요."
+    );
+
+    return;
+
+  }
+
+
+  let score =
+    selectedSymptoms.reduce(
+      (a,b) => a+b,
+      0
+    );
+
+
+  if (age === "1~3년")
+    score += 5;
+
+  if (age === "3~5년")
+    score += 15;
+
+  if (age === "5년 이상")
+    score += 25;
+
+
+  score =
+    Math.min(score,100);
+
+
+  document
+    .getElementById("result")
+    .style.display = "block";
+
+
+  document
+    .getElementById("score")
+    .textContent =
+      score + "점";
+
+
+  let level;
+  let recommendation;
+
+
+  if (score >= 70) {
+
+    level =
+      "🔴 청소 필요도 높음";
+
+
+    recommendation =
+      "내부 오염 가능성이 높습니다. 일반 세탁조 클리너만으로 해결하기 어려울 수 있어 전문 분해 세척을 권장합니다.";
+
+
+    document
+      .getElementById("mold")
+      .textContent = "심함";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "심함";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("total")
+      .textContent = "높음";
+
+  }
+
+  else if (score >= 40) {
+
+    level =
+      "🟠 청소 필요도 보통";
+
+
+    recommendation =
+      "세탁조 클리너를 이용한 청소를 먼저 진행해보세요. 냄새나 찌꺼기가 계속된다면 전문 세척을 권장합니다.";
+
+
+    document
+      .getElementById("mold")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "보통";
+
+
+    document
+      .getElementById("total")
+      .textContent = "보통";
+
+  }
+
+  else {
+
+    level =
+      "🟢 청소 필요도 낮음";
+
+
+    recommendation =
+      "현재 상태에서는 정기적인 세탁조 청소와 세탁 후 내부 건조만 잘 관리해도 좋습니다.";
+
+
+    document
+      .getElementById("mold")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("detergent")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("scale")
+      .textContent = "낮음";
+
+
+    document
+      .getElementById("total")
+      .textContent = "양호";
+
+  }
+
+
+  document
+    .getElementById("level")
+    .textContent =
+      level;
+
+
+  document
+    .getElementById("recommendation")
+    .textContent =
+      recommendation;
+
+
+  /* 기록 저장 */
+
+  const record = {
+
+    date:
+      new Date()
+        .toLocaleString("ko-KR"),
+
+    washer,
+
+    age,
+
+    score
+
+  };
+
+
+  let history =
+    JSON.parse(
+      localStorage.getItem(
+        "washerHistory"
+      ) || "[]"
+    );
+
+
+  history.unshift(record);
+
+
+  history =
+    history.slice(0,5);
+
+
+  localStorage.setItem(
+    "washerHistory",
+    JSON.stringify(history)
+  );
+
+
+  renderHistory();
+
+  renderMyHistory();
+
+
+  document
+    .getElementById("result")
+    .scrollIntoView({
+
+      behavior:"smooth"
+
+    });
+
+}
+
+
+/* ================= 예약 ================= */
+
+function book(){
+
+  showPage("bookingPage");
+
+}
+
+
+/* ================= AI 상담 ================= */
+
+function chat(){
+
+  const input =
+    document.getElementById(
+      "question"
+    );
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text) return;
+
+
+  const messages =
+    document.getElementById(
+      "messages"
+    );
+
+
+  messages.innerHTML +=
+    `<div class="user">
+      ${escapeHtml(text)}
+    </div>`;
+
+
+  let answer =
+    "증상을 조금 더 확인해보는 것이 좋습니다.";
+
+
+  if (
+    text.includes("냄새") ||
+    text.includes("악취")
+  ) {
+
+    answer =
+      "세탁기 냄새는 세탁조 내부의 세제 찌꺼기나 오염물 때문에 발생할 수 있어요. 세탁 후 문이나 뚜껑을 열어 내부를 건조하고 정기적인 세탁조 청소를 권장합니다.";
+
+  }
+
+  else if (
+    text.includes("검은") ||
+    text.includes("찌꺼기")
+  ) {
+
+    answer =
+      "검은 찌꺼기가 반복해서 나온다면 내부 오염이 상당할 가능성이 있습니다. 세탁조 클리너로 먼저 관리하고 계속 발생한다면 전문 세척을 고려해보세요.";
+
+  }
+
+  else if (
+    text.includes("곰팡이")
+  ) {
+
+    answer =
+      "눈에 보이는 곰팡이가 있다면 단순 세탁조 클리너만으로 모든 오염이 제거된다고 보기는 어렵습니다. 오염 정도에 따라 전문 세척이 더 적합할 수 있어요.";
+
+  }
+
+  else if (
+    text.includes("청소")
+  ) {
+
+    answer =
+      "세탁기 청소는 세탁조, 세제통, 고무패킹 등 오염 부위를 함께 관리하는 것이 좋습니다. 심한 오염은 전문 세척을 추천합니다.";
+
+  }
+
+
+  setTimeout(() => {
+
+    messages.innerHTML +=
+      `<div class="bot">
+        ${answer}
+      </div>`;
+
+
+    messages.scrollTop =
+      messages.scrollHeight;
+
+  },300);
+
+
+  input.value = "";
+
+}
+
+
+/* ================= XSS 방지 ================= */
+
+function escapeHtml(text){
+
+  return text
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* ================= 기록 가져오기 ================= */
+
+function getHistory(){
+
+  return JSON.parse(
+    localStorage.getItem(
+      "washerHistory"
+    ) || "[]"
   );
 
 }
 
-);
 
-/* ==================================================
-사진 업로드
-================================================== */
+/* ================= 기록 표시 ================= */
 
-document
-.getElementById("galleryPhoto")
-.addEventListener(
-"change",
-function() {
+function renderHistory(){
 
-  handlePhoto(
-    this.files[0]
-  );
+  const list =
+    document.getElementById(
+      "historyList"
+    );
 
-}
 
-);
+  const history =
+    getHistory();
 
-/* ==================================================
-사진 미리보기
-================================================== */
 
-function handlePhoto(file) {
+  if(history.length === 0){
 
-if (!file) return;
+    list.textContent =
+      "진단 기록이 없습니다.";
 
-if (
-!file.type.startsWith("image/")
-) {
+    return;
 
-alert(
-  "이미지 파일만 선택해주세요."
-);
+  }
 
-return;
 
-}
+  list.innerHTML =
+    history.map(item => `
 
-const preview =
-document.getElementById(
-"preview"
-);
+      <div class="history-item">
 
-if (preview.src) {
+        🧺
+        ${escapeHtml(item.washer)}
+        ·
+        ${escapeHtml(item.age)}
 
-URL.revokeObjectURL(
-  preview.src
-);
+        <br>
 
-}
+        🔎 청소 필요도
+        ${item.score}점
 
-preview.src =
-URL.createObjectURL(
-file
-);
+        <br>
 
-preview.style.display =
-"block";
+        <small>
+          ${escapeHtml(item.date)}
+        </small>
+
+      </div>
+
+    `).join("");
 
 }
 
-/* ==================================================
-AI 진단
-================================================== */
 
-function diagnose() {
+/* ================= 마이페이지 기록 ================= */
 
-if (!age) {
+function renderMyHistory(){
 
-alert(
-  "세탁기 사용 기간을 선택해주세요."
-);
+  const list =
+    document.getElementById(
+      "myHistoryList"
+    );
 
-return;
 
-}
+  const history =
+    getHistory();
 
-let score =
-selectedSymptoms.reduce(
-(a, b) => a + b,
-0
-);
 
-if (age === "1~3년") {
+  if(history.length === 0){
 
-score += 5;
+    list.textContent =
+      "진단 기록이 없습니다.";
 
-}
+    return;
 
-if (age === "3~5년") {
+  }
 
-score += 15;
 
-}
+  list.innerHTML =
+    history.map(item => `
 
-if (age === "5년 이상") {
+      <div class="history-item">
 
-score += 25;
+        🧺
+        ${escapeHtml(item.washer)}
+        ·
+        ${escapeHtml(item.age)}
 
-}
+        <br>
 
-score =
-Math.min(
-score,
-100
-);
+        🔎 청소 필요도
+        <strong>
+          ${item.score}점
+        </strong>
 
-document
-.getElementById("result")
-.style.display =
-"block";
+        <br>
 
-document
-.getElementById("score")
-.textContent =
-score + "점";
+        <small>
+          ${escapeHtml(item.date)}
+        </small>
 
-let level;
+      </div>
 
-let recommendation;
-
-/* ================= 높은 상태 ================= */
-
-if (score >= 70) {
-
-level =
-  "🔴 청소 필요도 높음";
-
-recommendation =
-  "내부 오염 가능성이 높습니다. 일반 세탁조 클리너만으로 해결하기 어려울 수 있어 전문 분해 세척을 권장합니다.";
-
-document
-  .getElementById("mold")
-  .textContent =
-    "심함";
-
-document
-  .getElementById("detergent")
-  .textContent =
-    "심함";
-
-document
-  .getElementById("scale")
-  .textContent =
-    "보통";
-
-document
-  .getElementById("total")
-  .textContent =
-    "높음";
+    `).join("");
 
 }
 
-/* ================= 보통 상태 ================= */
 
-else if (score >= 40) {
-
-level =
-  "🟠 청소 필요도 보통";
-
-recommendation =
-  "세탁조 클리너를 이용한 청소를 먼저 진행해보세요. 냄새나 찌꺼기가 계속된다면 전문 세척을 권장합니다.";
-
-document
-  .getElementById("mold")
-  .textContent =
-    "보통";
-
-document
-  .getElementById("detergent")
-  .textContent =
-    "보통";
-
-document
-  .getElementById("scale")
-  .textContent =
-    "보통";
-
-document
-  .getElementById("total")
-  .textContent =
-    "보통";
-
-}
-
-/* ================= 낮은 상태 ================= */
-
-else {
-
-level =
-  "🟢 청소 필요도 낮음";
-
-recommendation =
-  "현재 상태에서는 정기적인 세탁조 청소와 세탁 후 내부 건조만 잘 관리해도 좋습니다.";
-
-document
-  .getElementById("mold")
-  .textContent =
-    "낮음";
-
-document
-  .getElementById("detergent")
-  .textContent =
-    "낮음";
-
-document
-  .getElementById("scale")
-  .textContent =
-    "낮음";
-
-document
-  .getElementById("total")
-  .textContent =
-    "양호";
-
-}
-
-document
-.getElementById("level")
-.textContent =
-level;
-
-document
-.getElementById("recommendation")
-.textContent =
-recommendation;
-
-/* ==================================================
-진단 기록 저장
-================================================== */
-
-const record = {
-
-date:
-  new Date()
-    .toLocaleString(
-      "ko-KR"
-    ),
-
-washer,
-
-age,
-
-score
-
-};
-
-let history =
-JSON.parse(
-localStorage.getItem(
-"washerHistory"
-) || "[]"
-);
-
-history.unshift(
-record
-);
-
-history =
-history.slice(
-0,
-5
-);
-
-localStorage.setItem(
-"washerHistory",
-JSON.stringify(
-history
-)
-);
+/* ================= 초기 실행 ================= */
 
 renderHistory();
 
 renderMyHistory();
 
-document
-.getElementById("result")
-.scrollIntoView({
+</script>
 
-  behavior: "smooth"
-
-});
-
-}
-
-/* ==================================================
-예약
-================================================== */
-
-function book() {
-
-showPage(
-"bookingPage"
-);
-
-}
-
-/* ==================================================
-AI 상담
-================================================== */
-
-function chat() {
-
-const input =
-document.getElementById(
-"question"
-);
-
-const text =
-input.value.trim();
-
-if (!text) return;
-
-const messages =
-document.getElementById(
-"messages"
-);
-
-messages.innerHTML +=
-<div class="user"> ${escapeHtml(text)} </div>;
-
-let answer =
-"증상을 조금 더 확인해보는 것이 좋습니다.";
-
-/* ================= 냄새 ================= */
-
-if (
-text.includes("냄새") ||
-text.includes("악취")
-) {
-
-answer =
-  "세탁기 냄새는 세탁조 내부의 세제 찌꺼기나 오염물 때문에 발생할 수 있어요. 세탁 후 문이나 뚜껑을 열어 내부를 건조하고 정기적인 세탁조 청소를 권장합니다.";
-
-}
-
-/* ================= 검은 찌꺼기 ================= */
-
-else if (
-text.includes("검은") ||
-text.includes("찌꺼기")
-) {
-
-answer =
-  "검은 찌꺼기가 반복해서 나온다면 내부 오염이 상당할 가능성이 있습니다. 세탁조 클리너로 먼저 관리하고 계속 발생한다면 전문 세척을 고려해보세요.";
-
-}
-
-/* ================= 곰팡이 ================= */
-
-else if (
-text.includes("곰팡이")
-) {
-
-answer =
-  "눈에 보이는 곰팡이가 있다면 단순 세탁조 클리너만으로 모든 오염이 제거된다고 보기는 어렵습니다. 오염 정도에 따라 전문 세척이 더 적합할 수 있어요.";
-
-}
-
-/* ================= 청소 ================= */
-
-else if (
-text.includes("청소")
-) {
-
-answer =
-  "세탁기 청소는 세탁조, 세제통, 고무패킹 등 오염 부위를 함께 관리하는 것이 좋습니다. 심한 오염은 전문 세척을 추천합니다.";
-
-}
-
-setTimeout(
-() => {
-
-  messages.innerHTML +=
-    `<div class="bot">
-      ${answer}
-    </div>`;
-
-  messages.scrollTop =
-    messages.scrollHeight;
-
-},
-300
-
-);
-
-input.value = "";
-
-}
-
-/* ==================================================
-XSS 방지
-================================================== */
-
-function escapeHtml(text) {
-
-return text
-
-.replaceAll(
-  "&",
-  "&amp;"
-)
-
-.replaceAll(
-  "<",
-  "&lt;"
-)
-
-.replaceAll(
-  ">",
-  "&gt;"
-)
-
-.replaceAll(
-  '"',
-  "&quot;"
-)
-
-.replaceAll(
-  "'",
-  "&#039;"
-);
-
-}
-
-/* ==================================================
-기록 가져오기
-================================================== */
-
-function getHistory() {
-
-return JSON.parse(
-
-localStorage.getItem(
-  "washerHistory"
-) || "[]"
-
-);
-
-}
-
-/* ==================================================
-최근 진단 표시
-================================================== */
-
-function renderHistory() {
-
-const list =
-document.getElementById(
-"historyList"
-);
-
-const history =
-getHistory();
-
-if (
-history.length === 0
-) {
-
-list.textContent =
-  "진단 기록이 없습니다.";
-
-return;
-
-}
-
-list.innerHTML =
-history
-.map(
-item => `
-
-    <div class="history-item">
-
-      🧺
-      ${escapeHtml(item.washer)}
-      ·
-      ${escapeHtml(item.age)}
-
-      <br>
-
-      🔎 청소 필요도
-      ${item.score}점
-
-      <br>
-
-      <small>
-        ${escapeHtml(item.date)}
-      </small>
-
-    </div>
-
-  `
-  )
-  .join("");
-
-}
-
-/* ==================================================
-마이페이지 기록
-================================================== */
-
-function renderMyHistory() {
-
-const list =
-document.getElementById(
-"myHistoryList"
-);
-
-const history =
-getHistory();
-
-if (
-history.length === 0
-) {
-
-list.textContent =
-  "진단 기록이 없습니다.";
-
-return;
-
-}
-
-list.innerHTML =
-history
-.map(
-item => `
-
-    <div class="history-item">
-
-      🧺
-      ${escapeHtml(item.washer)}
-      ·
-      ${escapeHtml(item.age)}
-
-      <br>
-
-      🔎 청소 필요도
-      <strong>
-        ${item.score}점
-      </strong>
-
-      <br>
-
-      <small>
-        ${escapeHtml(item.date)}
-      </small>
-
-    </div>
-
-  `
-  )
-  .join("");
-
-}
-
-/* ==================================================
-엔터키로 AI 상담
-================================================== */
-
-document
-.getElementById("question")
-.addEventListener(
-"keydown",
-function(event) {
-
-  if (
-    event.key === "Enter"
-  ) {
-
-    chat();
-
-  }
-
-}
+</body>
+</html>
